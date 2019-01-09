@@ -4,7 +4,59 @@
 {% block title %}Home page{% endblock title %}
 
 {% block content %}
-<h1>Home page</h1>
-<img src="{% static 'images/falconx.png' %}" class="img-fluid" alt="FalconX launch"/>
-{% endblock content %}
+<div class="page-header">
+      <h1>YouJudge</h1>
+    </div>
+    <p class="lead" id="tagline">
+      Don't trust the ref? YouJudge instead!
+    </p>
 
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-md-5 px-0">
+          <div class="glove">
+            <img src="{% static 'images/boxing-glove-1.png' %}" class="img-fluid" alt="">
+          </div>
+        </div>
+
+        <div class="col-md-2 px-0"></div>
+
+        <div class="col-md-5 px-0">
+          <div class="glove">
+            <img src="{% static 'images/boxing-glove-2.png' %}" class="img-fluid" alt="">
+          </div>
+        </div>
+
+
+      </div>
+
+
+
+
+    </div>
+
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-md-4"></div>
+
+          <div id="button_col" class="col-md-4">
+            {% if user.is_authenticated %}
+            <form action="/games/create_fight/">
+            <button class="btn-primary btn-lg" id="start_button" type="submit" name="start">Start</button>
+            </form>
+            {% else %}
+            <form action="/accounts/signup/">
+            <button class="btn-primary btn-lg" id="register_button" type="submit" name="register">Register</button>
+            </form>
+            {% endif %}
+          </div>
+
+        <div class="col-md-4"></div>
+      </div>
+
+    </div>
+{% endblock content %}

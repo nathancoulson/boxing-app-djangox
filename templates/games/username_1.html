@@ -1,0 +1,111 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block title %}Home page{% endblock title %}
+
+{% block content %}
+<div class="page-header">
+      <h1>Round 1</h1>
+    </div>
+
+
+
+    <div class="container">
+
+
+    <div class="row">
+
+      <div class="col-md-5 px-0">
+        <div id="boxer_1_glove" class="glove">
+          <img src="{% static 'images/boxing-glove-1.png' %}" class="img-fluid" alt="">
+        </div>
+      </div>
+
+      <div class="col-md-2 px-0"></div>
+
+      <div class="col-md-5 px-0">
+        <div id="boxer_2_glove" class="glove">
+          <img src="{% static 'images/boxing-glove-2.png' %}" class="img-fluid" alt="">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+
+      <div class="col-md-12">
+        <div class="space"></div>
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <div class="col-md-2 px-0"></div>
+
+      <div class="col-md-2 px-0">
+        <div id="boxer_1_knockdown" class="knockdown">
+          <img src="{% static 'images/knockdown.png' %}" class="img-fluid" alt="">
+        </div>
+      </div>
+
+      <div class="col-md-4 px-0"></div>
+
+      <div class="col-md-2 px-0">
+        <div id="boxer_2_knockdown" class="knockdown">
+          <img src="{% static 'images/knockdown.png' %}" class="img-fluid" alt="">
+        </div>
+      </div>
+
+      <div class="col-md-2 px-0"></div>
+
+    </div>
+
+    <div class="row">
+
+      <div class="col-md-2 px-0"></div>
+
+      <div class="col-md-2 px-0">
+        <div id="boxer_1_penalty" class="penalty">
+          <img src="{% static 'images/ref.png' %}" class="img-fluid" alt="">
+        </div>
+      </div>
+
+      <div class="col-md-4 px-0"></div>
+
+      <div class="col-md-2 px-0">
+        <div id="boxer_2_penalty" class="penalty">
+          <img src="{% static 'images/ref.png' %}" class="img-fluid" alt="">
+        </div>
+      </div>
+
+      <div class="col-md-2 px-0"></div>
+
+    </div>
+
+
+  </div>
+
+
+
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-md-4"></div>
+
+        <div id="button_col" class="col-md-4">
+
+          <button class="btn-primary btn-lg" id="next_round" type="button" name="next_round">Next Round</button>
+
+        </div>
+
+      <div class="col-md-4"></div>
+    </div>
+
+  </div>
+
+
+
+
+
+{% endblock content %}

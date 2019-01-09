@@ -7,7 +7,8 @@ from users.models import CustomUser
 class Fight(models.Model):
     boxer_1 = models.CharField(max_length=100)
     boxer_2 = models.CharField(max_length=100)
-    result = models.IntegerField(blank=True)
+    fight_date = models.DateTimeField(blank=True, auto_now=False, auto_now_add=False)
+    result = models.IntegerField(blank=True, null=True)
 
 class Game(models.Model):
     user_id = models.ForeignKey(CustomUser, on_delete=models.CASCADE)

@@ -1,0 +1,18 @@
+{% extends '_base.html' %}
+
+{% load crispy_forms_tags %}
+
+<!-- add function to get next game id and feed it to form-->
+
+{% block content %}
+
+<form action="/games/username_1/" method='POST'>
+  {% csrf_token %}
+  {{ form|crispy }}
+    <button class="btn-primary btn-lg" id="start_fight" type="submit" name="start_fight">Start Fight</button>
+</form>
+
+
+
+
+{% endblock %}
