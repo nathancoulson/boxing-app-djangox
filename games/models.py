@@ -7,14 +7,14 @@ from users.models import CustomUser
 class Fight(models.Model):
     boxer_1 = models.CharField(max_length=100)
     boxer_2 = models.CharField(max_length=100)
-    fight_date = models.DateTimeField(blank=True, auto_now=False, auto_now_add=False)
+    fight_date = models.DateTimeField(blank=True, null= True, auto_now=False, auto_now_add=False)
     result = models.IntegerField(blank=True, null=True)
 
 class Game(models.Model):
     user_id = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     fight_id = models.ForeignKey(Fight, on_delete=models.CASCADE)
     time_created = models.DateTimeField(datetime.now())
-    time_finished = models.DateTimeField(blank=True, auto_now=False, auto_now_add=False)
+    time_finished = models.DateTimeField(blank=True, null= True, auto_now=False, auto_now_add=False)
     round_1 = models.CharField(max_length=25)
     round_2 = models.CharField(max_length=25)
     round_3 = models.CharField(max_length=25)

@@ -1,4 +1,5 @@
 {% extends '_base.html' %}
+{% load static %}
 
 
 
@@ -6,8 +7,15 @@
 
 
 {% for fight in object_list %}
-  <div style="padding: 20px; margin-bottom: 10px; background-color: #0099CC; text-align: center;"><p>{{ fight.boxer_1 }} vs {{ fight.boxer_2 }} <br> {{ fight.fight_date }}</p></div>
+  <div class="fight_item">
+    <p id="fight_title">{{ fight.boxer_1 }} vs {{ fight.boxer_2 }}</h3>
+    <form action="/games/game/{{ fight.id }}/{{ request.user.id }}/" method = "GET">
+    <button class="btn-success btn-lg" id="new_game" type="submit" name="new_game">Start Scoring!</button>
+    </form>
+    <p id="fight_details">{{ fight.fight_date }}</p>
+  </div>
 {% endfor %}
+
 
 
 {% endblock %}

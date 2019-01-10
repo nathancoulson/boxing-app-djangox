@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from .forms import FightForm
 from .models import Fight
+from .models import Game
+from users.models import CustomUser
+from datetime import datetime
 # Create your views here.
 
 
@@ -22,8 +25,16 @@ def all_fights_view(request):
     return render(request, "games/all_fights.html", context)
 
 
-def fight_view(request):
+def game_view(request, fight_id, user_id):
+    user = CustomUser.objects.get(id=user_id)
+    fight = Fight.objects.get(id=fight_id)
+    Game.objects.create(user_id = user, fight_id = fight, time_created = datetime.now())
+    game = Game.objects.get(user_id = user_id, fight_id = fight_id)
     context = {
-        'fight_id': 1
+        'game_id': game.id,
+        'user_id': game.user_id,
+        'fight_id': game.fight_id,
+        'start_time': game.time_created,
     }
-    return render(request, "games/username_1.html", context)
+
+    return render(request, "games/game.html", context)
