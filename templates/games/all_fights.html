@@ -1,0 +1,13 @@
+{% extends '_base.html' %}
+
+
+
+{% block content %}
+
+
+{% for fight in object_list %}
+  <div style="padding: 20px; margin-bottom: 10px; background-color: #0099CC; text-align: center;"><p>{{ fight.boxer_1 }} vs {{ fight.boxer_2 }} <br> {{ fight.fight_date }}</p></div>
+{% endfor %}
+
+
+{% endblock %}

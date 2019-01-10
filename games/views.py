@@ -14,6 +14,14 @@ def create_fight_view(request):
     }
     return render(request, "games/create_fight.html", context)
 
+def all_fights_view(request):
+    queryset = Fight.objects.all()
+    context = {
+        "object_list": queryset
+    }
+    return render(request, "games/all_fights.html", context)
+
+
 def fight_view(request):
     context = {
         'fight_id': 1
