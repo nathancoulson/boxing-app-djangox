@@ -63,7 +63,7 @@
 
       <div class="col-md-2 px-0">
         <div id="boxer_1_knockdown" class="knockdown">
-          <img src="{% static 'images/knockdown.png' %}" class="img-fluid" alt="">
+          <h1 id="boxer_1_knockdown_text">Knocked down</h1>
         </div>
       </div>
 
@@ -71,7 +71,7 @@
 
       <div class="col-md-2 px-0">
         <div id="boxer_2_knockdown" class="knockdown">
-          <img src="{% static 'images/knockdown.png' %}" class="img-fluid" alt="">
+          <h1 id="boxer_2_knockdown_text">Knocked down</h1>
         </div>
       </div>
 
@@ -85,7 +85,7 @@
 
       <div class="col-md-2 px-0">
         <div id="boxer_1_penalty" class="penalty">
-          <img src="{% static 'images/ref.png' %}" class="img-fluid" alt="">
+          <h1 id="boxer_1_penalty_text">Penalty</h1>
         </div>
       </div>
 
@@ -93,7 +93,7 @@
 
       <div class="col-md-2 px-0">
         <div id="boxer_2_penalty" class="penalty">
-          <img src="{% static 'images/ref.png' %}" class="img-fluid" alt="">
+          <h1 id="boxer_2_penalty_text">Penalty</h1>
         </div>
       </div>
 
@@ -115,15 +115,19 @@
         <div id="button_col" class="col-md-4">
           <form id="game_form" action="/games/game/{{ fight_id }}/{{ request.user.id }}/{{ game_id }}/" method="POST">
             {% csrf_token %}
+            <div class="hidden_div">
             {{  form.as_p }}
+            </div>
             <button class="btn-primary btn-lg" id="next_round" type="button" name="next_round">Next Round</button>
           </form>
         </div>
 
       <div class="col-md-4"></div>
     </div>
+    <div class="hidden_div">
     <p id="fight_id_js">{{  fight_id  }}</p>
     <p id="game_id_js">{{  game_id  }}</p>
+    </div>
 
   </div>
 

@@ -84,7 +84,7 @@ img {
 .boxer_name {
   font-family: "Segoe UI", "Roboto", "Helvetica Neue", "Arial" ,"sans-serif";
   font-weight: bold;
-  font-size: 2.5em;
+  font-size: 4em;
   color: white;
 }
 
@@ -112,4 +112,46 @@ img {
 
 #who_won_btn {
   margin:40px;
+}
+
+.hidden_div {
+  display: none;
+}
+
+#boxer_1_knockdown_text {
+  font-size: 2em;
+  font-weight: bold;
+  font-family: Impact, Charcoal, sans-serif;
+}
+#boxer_2_knockdown_text {
+  font-size: 2em;
+  font-weight: bold;
+  font-family: Impact, Charcoal, sans-serif;
+}
+#boxer_1_penalty_text {
+  font-size: 2em;
+  font-weight: bold;
+  font-family: Impact, Charcoal, sans-serif;
+}
+#boxer_2_penalty_text {
+  font-size: 2em;
+  font-weight: bold;
+  font-family: Impact, Charcoal, sans-serif;
+}
+
+#boxer_1_knockdown {
+  padding: 5px;
+  margin:10px;
+}
+#boxer_2_knockdown {
+  padding: 5px;
+  margin:10px;
+}
+#boxer_1_penalty {
+  padding: 5px;
+  margin:10px;
+}
+#boxer_2_penalty {
+  padding: 5px;
+  margin: 10px;
 }
