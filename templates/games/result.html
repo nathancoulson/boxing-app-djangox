@@ -1,0 +1,79 @@
+{% extends '_base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<div class="row">
+
+  <div class="col-md-3 px-0">
+
+
+  </div>
+
+  <div class="col-md-6 px-0">
+    <div class="title_section">
+      <h1 class="raw_results_title">Good Work!</h1>
+
+      <h2 class="raw_results_title">Click the button below to convert your scores!</h2>
+        <form id="who_won_btn" action="/games/game/who_won/{{  fight_id  }}/{{  game_id  }}/" method='GET'>
+          <button class="btn-danger btn-lg" id="who_won" type="submit" name="who_won">Who Won?</button>
+        </form>
+
+      <h3 class="raw_results_title">See your raw scores for each round below</h3>
+    </div>
+  </div>
+
+  <div class="col-md-3 px-0">
+
+
+  </div>
+
+</div>
+
+
+{% for round in object_list %}
+
+
+<div class="row">
+
+
+
+  <div class="col-md-4 px-0">
+
+    <div class="round_item">
+      <h2 class="boxer_name">{{ boxer_1 }}</h2>
+
+      <p class="round_scores">Hits: {{ round.boxer_1_hits }}</p>
+      <p class="round_scores">Knockdowns: {{ round.boxer_1_knockdowns }}</p>
+      <p class="round_scores">Penalties: {{ round.boxer_1_penalties }}</p>
+
+    </div>
+  </div>
+
+  <div class="col-md-4 px-0">
+    <div class="round_number">
+    <h3 id="round_number_res">Round Number <br> {{ round.round_number }}</h3>
+    </div>
+  </div>
+
+  <div class="col-md-4 px-0">
+
+    <div class="round_item">
+      <h2 class="boxer_name">{{ boxer_2 }}</h2>
+
+      <p class="round_scores">Hits: {{ round.boxer_2_hits }}</p>
+      <p class="round_scores">Knockdowns: {{ round.boxer_2_knockdowns }}</p>
+      <p class="round_scores">Penalties: {{ round.boxer_2_penalties }}</p>
+
+    </div>
+  </div>
+
+
+</div>
+
+
+{% endfor %}
+
+
+{% endblock %}

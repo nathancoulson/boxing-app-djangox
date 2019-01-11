@@ -1,0 +1,71 @@
+{% extends '_base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<div class="row">
+
+  <div class="col-md-3 px-0">
+
+
+  </div>
+
+  <div class="col-md-6 px-0">
+    <div class="title_section">
+      <h1 class="raw_results_title">The winner is: {{ winner }}!</h1>
+
+
+    </div>
+  </div>
+
+  <div class="col-md-3 px-0">
+
+
+  </div>
+
+</div>
+
+
+{% for round, scores in fight_dict.items %}
+
+
+<div class="row">
+
+
+
+  <div class="col-md-4 px-0">
+
+    <div class="round_item">
+      <h2 class="boxer_name">{{ boxer_1 }}</h2>
+
+      <p class="round_scores">Points: {{ scores.boxer_1 }}</p>
+
+
+    </div>
+  </div>
+
+  <div class="col-md-4 px-0">
+    <div class="round_number">
+    <h3 id="round_number_res">Round Number <br> {{ round }}</h3>
+    </div>
+  </div>
+
+  <div class="col-md-4 px-0">
+
+    <div class="round_item">
+      <h2 class="boxer_name">{{ boxer_2 }}</h2>
+
+      <p class="round_scores">Points: {{ scores.boxer_2 }}</p>
+
+    </div>
+  </div>
+
+
+</div>
+
+
+{% endfor %}
+
+
+{% endblock %}

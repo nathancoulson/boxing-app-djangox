@@ -114,7 +114,7 @@ function main() {
 
    if (round_number == 13) {
      localStorage.clear();
-     window.open('/games/game-' + game_id_js + '/', '_self');
+     window.open('/games/game/result/' + fight_id_js.match(/\d+/g).map(Number) + '/' + game_id_js + '/', '_self');
    }
 
 }

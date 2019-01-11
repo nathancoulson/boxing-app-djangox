@@ -8,8 +8,8 @@
 
 {% for fight in object_list %}
   <div class="fight_item">
-    <p id="fight_title">{{ fight.boxer_1 }} vs {{ fight.boxer_2 }}</h3>
-    <form action="/games/game/{{ fight.id }}/{{ request.user.id }}/" method = "GET">
+    <p id="fight_title">{{ fight.boxer_1 }} vs {{ fight.boxer_2 }}</p>
+    <form action="/games/game/{{ fight.id }}/{{ request.user.id }}/0/" method = "GET">
     <button class="btn-success btn-lg" id="new_game" type="submit" name="new_game">Start Scoring!</button>
     </form>
     <p id="fight_details">{{ fight.fight_date }}</p>

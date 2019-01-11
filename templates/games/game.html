@@ -113,7 +113,7 @@
       <div class="col-md-4"></div>
 
         <div id="button_col" class="col-md-4">
-          <form id="game_form" action="." method="POST">
+          <form id="game_form" action="/games/game/{{ fight_id }}/{{ request.user.id }}/{{ game_id }}/" method="POST">
             {% csrf_token %}
             {{  form.as_p }}
             <button class="btn-primary btn-lg" id="next_round" type="button" name="next_round">Next Round</button>
