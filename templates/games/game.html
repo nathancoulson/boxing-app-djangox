@@ -5,12 +5,31 @@
 
 {% block content %}
 <div class="page-header">
-      <h1>Round 1</h1>
+      <h1>Round <span id="round_number_span">1</span></h1>
     </div>
 
 
 
     <div class="container">
+
+    <div class="row">
+
+      <div class="col-md-5 px-0">
+        <div class="boxer_label">
+          <h2 id="boxer_1_name">{{ boxer_1 }}</h2>
+        </div>
+      </div>
+
+      <div class="col-md-2 px-0"></div>
+
+      <div class="col-md-5 px-0">
+        <div class="boxer_label">
+          <h2 id="boxer_2_name">{{ boxer_2 }}</h2>
+        </div>
+      </div>
+    </div>
+
+
 
 
     <div class="row">
@@ -94,13 +113,17 @@
       <div class="col-md-4"></div>
 
         <div id="button_col" class="col-md-4">
-
-          <button class="btn-primary btn-lg" id="next_round" type="button" name="next_round">Next Round</button>
-
+          <form id="game_form" action="." method="POST">
+            {% csrf_token %}
+            {{  form.as_p }}
+            <button class="btn-primary btn-lg" id="next_round" type="button" name="next_round">Next Round</button>
+          </form>
         </div>
 
       <div class="col-md-4"></div>
     </div>
+    <p id="fight_id_js">{{  fight_id  }}</p>
+    <p id="game_id_js">{{  game_id  }}</p>
 
   </div>
 
