@@ -5,19 +5,15 @@ const boxer_2_knockdown = document.getElementById('boxer_2_knockdown');
 const boxer_1_penalty = document.getElementById('boxer_1_penalty');
 const boxer_2_penalty = document.getElementById('boxer_2_penalty');
 const next_round = document.getElementById('next_round');
-var boxer_1_name = document.getElementById('boxer_1_name').innerHTML;
-var boxer_2_name = document.getElementById('boxer_2_name').innerHTML;
 var game_id_js = document.getElementById('game_id_js').innerHTML;
 
 let boxer_1 = {
-  name: boxer_1_name,
   hits: 0,
   knockdowns: 0,
   penalties: 0
 }
 
 let boxer_2 = {
-  name: boxer_1_name,
   hits: 0,
   knockdowns: 0,
   penalties: 0
@@ -48,26 +44,51 @@ function print_scores() {
 function main() {
   boxer_1_glove.addEventListener('click', function() {
     increment(boxer_1, "hits");
+    boxer_1_glove.classList.add('green_hit');
+    setTimeout(function() {
+      boxer_1_glove.classList.remove('green_hit')
+    }, 400);
+
   })
 
   boxer_2_glove.addEventListener('click', function() {
     increment(boxer_2, "hits");
+    boxer_2_glove.classList.add('green_hit');
+    setTimeout(function() {
+      boxer_2_glove.classList.remove('green_hit')
+    }, 400);
   })
 
   boxer_1_knockdown.addEventListener('click', function() {
     increment(boxer_1, "knockdowns");
+    boxer_1_knockdown.classList.add('red_damage');
+    setTimeout(function() {
+      boxer_1_knockdown.classList.remove('red_damage')
+    }, 400);
   })
 
   boxer_2_knockdown.addEventListener('click', function() {
     increment(boxer_2, "knockdowns");
+    boxer_2_knockdown.classList.add('red_damage');
+    setTimeout(function() {
+      boxer_2_knockdown.classList.remove('red_damage')
+    }, 400);
   })
 
   boxer_1_penalty.addEventListener('click', function() {
     increment(boxer_1, "penalties");
+    boxer_1_penalty.classList.add('red_damage');
+    setTimeout(function() {
+      boxer_1_penalty.classList.remove('red_damage')
+    }, 400);
   })
 
   boxer_2_penalty.addEventListener('click', function() {
     increment(boxer_2, "penalties");
+    boxer_2_penalty.classList.add('red_damage');
+    setTimeout(function() {
+      boxer_2_penalty.classList.remove('red_damage')
+    }, 400);
   })
 
   if (localStorage.getItem('round_number') === null) {

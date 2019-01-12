@@ -72,7 +72,22 @@ def who_won_view(request, fight_id, game_id):
     game_data = Round.objects.filter(game_id = game_id)
     fight_details = Fight.objects.get(id = fight_id)
 
+
     fight_dict = {}
+    # fight_dict = {
+    #     1: {},
+    #     2: {},
+    #     3: {},
+    #     4: {},
+    #     5: {},
+    #     6: {},
+    #     7: {},
+    #     8: {},
+    #     9: {},
+    #     10: {},
+    #     11: {},
+    #     12: {},
+    # }
 
     for round in game_data:
         if round.boxer_1_hits > round.boxer_2_hits:
@@ -83,12 +98,15 @@ def who_won_view(request, fight_id, game_id):
             fight_dict[round.round_number] = {"boxer_1": 9, "boxer_2": 10}
             if round.boxer_2_hits - round.boxer_1_hits > 10:
                 fight_dict[round.round_number]["boxer_1"] = 8
+        else:
+            fight_dict[round.round_number] = {"boxer_1": 10, "boxer_2": 10}
 
-    # for round in game_data:
-    #     fight_dict[round.round_number]["boxer_1"] -= int(round.boxer_1_knockdowns)
-    #     fight_dict[round.round_number]["boxer_1"] -= int(round.boxer_1_penalties)
-    #     fight_dict[round.round_number]["boxer_2"] -= int(round.boxer_2_knockdowns)
-    #     fight_dict[round.round_number]["boxer_2"] -= int(round.boxer_2_penalties)
+
+    for round in game_data:
+        fight_dict[round.round_number]["boxer_1"] -= int(round.boxer_1_knockdowns)
+        fight_dict[round.round_number]["boxer_1"] -= int(round.boxer_1_penalties)
+        fight_dict[round.round_number]["boxer_2"] -= int(round.boxer_2_knockdowns)
+        fight_dict[round.round_number]["boxer_2"] -= int(round.boxer_2_penalties)
 
     boxer_1_rounds = 0
     boxer_2_rounds = 0
