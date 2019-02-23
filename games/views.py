@@ -90,23 +90,50 @@ def who_won_view(request, fight_id, game_id):
     # }
 
     for round in game_data:
-        if round.boxer_1_hits > round.boxer_2_hits:
-            fight_dict[round.round_number] = {"boxer_1": 10, "boxer_2": 9}
-            if round.boxer_1_hits - round.boxer_2_hits > 10:
-                fight_dict[round.round_number]["boxer_2"] = 8
-        elif round.boxer_2_hits > round.boxer_1_hits:
-            fight_dict[round.round_number] = {"boxer_1": 9, "boxer_2": 10}
-            if round.boxer_2_hits - round.boxer_1_hits > 10:
-                fight_dict[round.round_number]["boxer_1"] = 8
-        else:
-            fight_dict[round.round_number] = {"boxer_1": 10, "boxer_2": 10}
+        if round.boxer_1_knockdowns > round.boxer_2_knockdowns:
+            fight_dict[round.round_number] = {"boxer_1": 8, "boxer_2": 10}
+            if round.boxer_1_hits - round.boxer_2_hits > 30:
+                fight_dict[round.round_number] = {"boxer_1": 9, "boxer_2": 10}
+        elif round.boxer_2_knockdowns > round.boxer_1_knockdowns:
+            fight_dict[round.round_number] = {"boxer_1": 10, "boxer_2": 8}
+            if round.boxer_2_hits - round.boxer_1_hits > 30:
+                fight_dict[round.round_number] = {"boxer_1": 10, "boxer_2": 9}
+        elif round.boxer_1_knockdowns == round.boxer_2_knockdowns:
+            if round.boxer_1_hits > round.boxer_2_hits:
+                fight_dict[round.round_number] = {"boxer_1": 10, "boxer_2": 9}
+                if round.boxer_1_hits - round.boxer_2_hits > 40:
+                    fight_dict[round.round_number]["boxer_2"] = 8
+            elif round.boxer_2_hits > round.boxer_1_hits:
+                fight_dict[round.round_number] = {"boxer_1": 9, "boxer_2": 10}
+                if round.boxer_2_hits - round.boxer_1_hits > 40:
+                    fight_dict[round.round_number]["boxer_1"] = 8
+            else:
+                fight_dict[round.round_number] = {"boxer_1": 10, "boxer_2": 10}
+
+    # for round in game_data:
+    #     if round.boxer_1_hits > round.boxer_2_hits:
+    #         fight_dict[round.round_number] = {"boxer_1": 10, "boxer_2": 9}
+    #         if round.boxer_1_hits - round.boxer_2_hits > 40:
+    #             fight_dict[round.round_number]["boxer_2"] = 8
+    #     elif round.boxer_2_hits > round.boxer_1_hits:
+    #         fight_dict[round.round_number] = {"boxer_1": 9, "boxer_2": 10}
+    #         if round.boxer_2_hits - round.boxer_1_hits > 40:
+    #             fight_dict[round.round_number]["boxer_1"] = 8
+    #     else:
+    #         fight_dict[round.round_number] = {"boxer_1": 10, "boxer_2": 10}
 
 
     for round in game_data:
-        fight_dict[round.round_number]["boxer_1"] -= int(round.boxer_1_knockdowns)
+        # fight_dict[round.round_number]["boxer_1"] -= int(round.boxer_1_knockdowns)
         fight_dict[round.round_number]["boxer_1"] -= int(round.boxer_1_penalties)
-        fight_dict[round.round_number]["boxer_2"] -= int(round.boxer_2_knockdowns)
+        # fight_dict[round.round_number]["boxer_2"] -= int(round.boxer_2_knockdowns)
         fight_dict[round.round_number]["boxer_2"] -= int(round.boxer_2_penalties)
+
+    # for round in game_data:
+    #     fight_dict[round.round_number]["boxer_1"] -= int(round.boxer_1_knockdowns)
+    #     fight_dict[round.round_number]["boxer_1"] -= int(round.boxer_1_penalties)
+    #     fight_dict[round.round_number]["boxer_2"] -= int(round.boxer_2_knockdowns)
+    #     fight_dict[round.round_number]["boxer_2"] -= int(round.boxer_2_penalties)
 
     boxer_1_rounds = 0
     boxer_2_rounds = 0
