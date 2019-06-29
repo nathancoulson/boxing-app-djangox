@@ -1,3 +1,10 @@
+# YouJudge Version 1.0
+
+An interactive app to score boxing matches more objectively. Currently hosted here: http://certainnathan.pythonanywhere.com/
+
+Version 2 coming soon!
+
+
 # DjangoX
 
 A framework for launching new Django projects quickly. Comes with a complete user authentication flow, custom user model, and social authentication options via Gmail, Facebook, Twitter, etc.
